@@ -1,0 +1,23 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: pink;
+  padding: 10px 0;
+  z-index: 999; /* Ensure header stays on top */
+}
+
+.content {
+  margin-top: 60px; /* Adjust according to header height */
+  padding: 20px;
+}
+
+.filter {
+  float: left; /* Float the filter component to the left */
+  width: 250px;
+}
+
+.venue-list {
+  margin-left: 280px; /* Adjust margin to create space between filter and venue list */
+}

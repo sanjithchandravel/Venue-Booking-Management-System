@@ -1,0 +1,69 @@
+.h21 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  justify-content: center;
+  display: flex;
+}
+.venue-list-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow-y: auto;
+  max-height: 600px;
+  background-color: #fff;
+}
+
+.venue-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.venue-list th,
+.venue-list td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.venue-list th {
+  background-color: #f2f2f2;
+  font-size: 14px;
+  color: #333;
+}
+
+.venue-list td {
+  text-align: center;
+}
+
+.venue-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+}
+
+.venue-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.venue-card p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.view-more-btn {
+  padding: 8px 16px;
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-more-btn:hover {
+  background-color: #ff1493;
+}

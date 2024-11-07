@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <form
+      #form="ngForm"
+      (ngSubmit)="onSubmit(form)"
+      name="f1"
+      autocomplete="off"
+    >
+      <h2>Login</h2>
+      <div>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          ngModel
+          #username="ngModel"
+          required
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+        />
+      </div>
+      <a href="/forget">Forget Password</a>
+      <a href="/register">Don't have an account? Sign Up</a>
+      <div *ngIf="show" class="validate-msg">{{ validateMsg }}</div>
+      <div>
+        <button type="submit" (click)="validate()">Login</button>
+      </div>
+    </form>
+    <div class="extend"></div>
+  </body>
+</html>

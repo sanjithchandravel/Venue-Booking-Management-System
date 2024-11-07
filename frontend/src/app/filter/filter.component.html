@@ -1,0 +1,39 @@
+<div class="filter">
+  <h2>Filter</h2>
+  <div class="filter-options">
+    <label>Seating Capacity:</label>
+    <input
+      type="number"
+      [(ngModel)]="seatingCapacity"
+      (ngModelChange)="applyFilters()"
+    />
+    <label>Location:</label>
+    <select [(ngModel)]="selectedLocation" (ngModelChange)="applyFilters()">
+      <option value="">All Locations</option>
+      <option value="sivakasi">Sivakasi</option>
+      <option value="aruppukottai">Aruppukottai</option>
+      <option value="virudhunagar">Virudhunagar</option>
+      <!-- Add more locations as needed -->
+    </select>
+    <label>AC:</label>
+    <select [(ngModel)]="selectedAc" (ngModelChange)="applyFilters()">
+      <option value="">Any</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+    <label>Rooms Available:</label>
+    <input
+      type="number"
+      [(ngModel)]="selectedRoomsAvailable"
+      (ngModelChange)="applyFilters()"
+    />
+    <label>Parking Capacity:</label>
+    <input
+      type="number"
+      [(ngModel)]="selectedParkingCapacity"
+      (ngModelChange)="applyFilters()"
+    />
+
+    <!-- Add more filter options as needed -->
+  </div>
+</div>

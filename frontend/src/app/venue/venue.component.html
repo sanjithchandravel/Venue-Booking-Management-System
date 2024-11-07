@@ -1,0 +1,29 @@
+<h2 class="h21">Venues</h2>
+<div class="venue-list-container">
+  <div class="venue-list">
+    <ng-container *ngIf="filteredVenues.length > 0; else noVenues">
+      <div class="venue-card" *ngFor="let venue of filteredVenues">
+        <h2>{{ venue.name | upperpipe }}</h2>
+        <div class="venue-details">
+          <p><strong>Seating Capacity:</strong> {{ venue.seatingcapacity }}</p>
+          <p><strong>City:</strong> {{ venue.city | upperpipe }}</p>
+          <p><strong>AC:</strong> {{ venue.ac | upperpipe }}</p>
+          <p><strong>Parking Capacity:</strong> {{ venue.parkingcapacity }}</p>
+          <p><strong>Rooms Available:</strong> {{ venue.roomsavailable }}</p>
+          <button
+            type="submit"
+            class="view-more-btn"
+            (click)="bookVenue(venue)"
+          >
+            View More
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noVenues>
+      <div class="no-venues-message">
+        <p>No venues available.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

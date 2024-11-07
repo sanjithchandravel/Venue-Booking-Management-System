@@ -1,0 +1,16 @@
+<div class="header">
+  <!-- Include the header component -->
+  <app-header></app-header>
+</div>
+
+<div class="content">
+  <div class="filter">
+    <!-- Include the filter component -->
+    <app-filter (filterData)="handleFilterChange($event)"></app-filter>
+  </div>
+
+  <div class="venue-list">
+    <!-- Include the venue component -->
+    <app-venue [filterData]="filterData"></app-venue>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forget Password</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <form
+      #form="ngForm"
+      (ngSubmit)="onSubmit(form)"
+      name="f1"
+      autocomplete="off"
+    >
+      <h2>Forget Password</h2>
+      <div>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          ngModel
+          #username="ngModel"
+          required
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+        />
+      </div>
+      <div>
+        <label for="cpassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="cpassword"
+          name="cpassword"
+          ngModel
+          #cpassword="ngModel"
+          required
+        />
+      </div>
+      <div *ngIf="show" class="validate-msg">{{ validateMsg }}</div>
+      <div>
+        <button type="submit" (click)="validate()">Reset</button>
+      </div>
+    </form>
+  </body>
+</html>

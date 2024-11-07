@@ -1,0 +1,37 @@
+<div class="booking-details-container">
+  <h2 class="booking-heading">Booking Details</h2>
+  <div class="booking-details">
+    <h3 class="venue-name">{{ venue.name | upperpipe }}</h3>
+    <div class="venue-info">
+      <p><strong>Seating Capacity:</strong> {{ venue.seatingcapacity }}</p>
+      <p><strong>City:</strong> {{ venue.city | upperpipe }}</p>
+      <p><strong>AC:</strong> {{ venue.ac | upperpipe }}</p>
+      <p><strong>Parking Capacity:</strong> {{ venue.parkingcapacity }}</p>
+      <p><strong>Rooms Available:</strong> {{ venue.roomsavailable }}</p>
+      <p><strong>Description:</strong><br />{{ venue.description }}</p>
+      <!-- Add more venue details as needed -->
+    </div>
+    <label>Date:</label>
+    <input
+      type="date"
+      [min]="minDate"
+      class="date-input"
+      [(ngModel)]="selectedDate"
+    />
+    <button class="check-availability-btn" (click)="checkAvailability()">
+      Check Availability
+    </button>
+    <button
+      *ngIf="isBookingAvailable"
+      class="book-venue-btn"
+      type="button"
+      (click)="book()"
+    >
+      Book
+    </button>
+  </div>
+</div>
+<div *ngIf="isMessage" class="message">
+  <h2>{{ message }}</h2>
+  <button *ngIf="buttonview" (click)="bookVenue()">Confirm Booking</button>
+</div>

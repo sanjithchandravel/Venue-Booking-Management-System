@@ -1,0 +1,84 @@
+.booking-details-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.booking-heading {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.venue-name {
+  font-size: 24px;
+  color: #ff69b4;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.venue-info p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.check-availability-btn {
+  padding: 12px 24px;
+  font-size: 20px;
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px; /* Add margin-right to create space between buttons */
+}
+
+.book-venue-btn {
+  padding: 12px 24px;
+  font-size: 20px;
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.check-availability-btn:hover,
+.book-venue-btn:hover {
+  background-color: #ff1493;
+}
+
+.venue-details {
+  margin-top: 20px;
+}
+.date-input {
+  padding: 8px; /* Adjust padding as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 16px; /* Adjust font size as needed */
+  width: 200px; /* Adjust width as needed */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Remove default arrow icon *
+
+/* Optional: Add custom styles for when the input is focused */
+.date-input:focus {
+  outline: none;
+  border-color: #ff69b4; /* Change border color on focus */
+}
+
+.message {
+  font-size: 28px;
+  color: #ff69b4;
+  margin-bottom: 20px;
+  text-align: center;
+}

@@ -1,0 +1,55 @@
+/* Styling for the filter and venue components */
+.filter-container {
+  display: flex;
+}
+
+.filter {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 20px;
+  border-radius: 5px;
+  margin-top: 30px;
+  width: 250px;
+  background-color: #f9f9f9;
+}
+
+.filter h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.filter-options label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.filter-options select,
+.filter-options input[type="number"],
+.filter-options input[type="date"] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.filter-options select {
+  height: 38px;
+}
+
+.filter-options input[type="number"],
+.filter-options input[type="date"] {
+  height: 38px;
+}
+
+.filter-options select:focus,
+.filter-options input[type="number"]:focus,
+.filter-options input[type="date"]:focus {
+  outline: none;
+  border-color: #007bff;
+}

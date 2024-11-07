@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <nav></nav>
+    </header>
+    <form
+      #form="ngForm"
+      (ngSubmit)="onSubmit(form)"
+      name="f1"
+      autocomplete="off"
+    >
+      <h2>Sign Up</h2>
+      <div>
+        <label for="username">Name:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          ngModel
+          #username="ngModel"
+          required
+        />
+      </div>
+      <div>
+        <label for="gender">Gender:</label>
+        <input
+          type="radio"
+          id="gender"
+          name="gender"
+          value="Male"
+          ngModel
+          #gender="ngModel"
+          required
+        />Male
+        <input
+          type="radio"
+          id="gender"
+          name="gender"
+          value="Female"
+          ngModel
+          #gender="ngModel"
+          required
+        />Female
+      </div>
+      <div>
+        <label for="phone">Phone No:</label>
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          ngModel
+          #phone="ngModel"
+          required
+        />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          ngModel
+          #email="ngModel"
+          required
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          ngModel
+          #password="ngModel"
+          required
+        />
+      </div>
+      <div>
+        <label for="cpassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="cpassword"
+          name="cpassword"
+          ngModel
+          #cpassword="ngModel"
+          required
+        />
+      </div>
+      <a href="/login">Already have an account? Login</a>
+      <a href="/delete">Delete my account</a>
+      <div *ngIf="show" class="validate-msg">{{ validateMsg }}</div>
+      <div>
+        <button type="submit" (click)="validate()">Register</button>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<div class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+  <div>
+    <button (click)="fetchUserList()">View Users</button>
+    <button (click)="fetchVenue()">View Venues</button>
+    <button (click)="show()">Add Venue</button>
+
+    <button (click)="book()">View Bookings</button>
+    <button (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="user-list-container" *ngIf="showUser">
+  <div class="table-scroll">
+    <table class="user-list">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Phone No</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList">
+          <td>{{ user.username | upperpipe }}</td>
+          <td>{{ user.gender | upperpipe }}</td>
+          <td>{{ user.email | upperpipe }}</td>
+          <td>{{ user.phone }}</td>
+          <td>
+            <button class="view-more-btn" (click)="deleteUser(user)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="venue-list-container" *ngIf="showVenue">
+  <div class="table-scroll">
+    <table class="venue-list">
+      <thead>
+        <tr>
+          <th>Venue Name</th>
+          <th>Seating Capacity</th>
+          <th>City</th>
+          <th>AC</th>
+          <th>Parking Capacity</th>
+          <th>Rooms Available</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let venue of venueList">
+          <td>{{ venue.name | upperpipe }}</td>
+          <td>{{ venue.seatingcapacity | upperpipe }}</td>
+          <td>{{ venue.city | upperpipe }}</td>
+          <td>{{ venue.ac | upperpipe }}</td>
+          <td>{{ venue.parkingcapacity | upperpipe }}</td>
+          <td>{{ venue.roomsavailable | upperpipe }}</td>
+          <td>
+            <button class="view-more-btn" (click)="deleteVenue(venue)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<form #form="ngForm" (ngSubmit)="submitVenue(form)" autocomplete="off">
+  <table class="add-venue-table" *ngIf="addVenue">
+    <thead>
+      <tr>
+        <th>Venue Name</th>
+        <th>Seating Capacity</th>
+        <th>City</th>
+        <th>AC</th>
+        <th>Parking Capacity</th>
+        <th>Rooms Available</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input
+            type="text"
+            pattern="[a-zA-Z ]+"
+            minlength="3"
+            name="name"
+            placeholder="Venue Name"
+            ngModel
+            #name="ngModel"
+            required
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="seat"
+            pattern="[0-9]+"
+            minlength="2"
+            placeholder="Seating Capacity"
+            ngModel
+            #seat="ngModel"
+            required
+          />
+        </td>
+        <td>
+          <select name="city" ngModel #city="ngModel" required>
+            <option value="">Select City</option>
+            <option value="virudhunagar">Virudhunagar</option>
+            <option value="sivakasi">Sivakasi</option>
+            <option value="aruppukottai">Aruppukottai</option>
+          </select>
+        </td>
+        <td>
+          <select name="ac" ngModel #ac="ngModel">
+            <option value="">Select AC</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </td>
+        <td>
+          <input
+            name="park"
+            type="text"
+            pattern="[0-9]+"
+            minlength="2"
+            placeholder="Parking Capacity"
+            ngModel
+            #park="ngModel"
+            required
+          />
+        </td>
+        <td>
+          <input
+            name="room"
+            type="text"
+            pattern="[0-9]+"
+            minlength="2"
+            placeholder="Rooms Available"
+            ngModel
+            #room="ngModel"
+            required
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name="des"
+            placeholder="Description"
+            ngModel
+            #des="ngModel"
+            required
+            minlength="50"
+          />
+        </td>
+        <td>
+          <button type="submit" class="view-more-btn" [disabled]="form.invalid">
+            Submit
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span *ngIf="name.touched && name.errors?.['required']"
+            >*Required Field
+          </span>
+          <span *ngIf="name.errors?.['minlength']">*Valid Hall Name </span>
+          <span *ngIf="name.errors?.['pattern']">*Give Correct Format </span>
+        </td>
+        <td>
+          <span *ngIf="seat.touched && seat.errors?.['required']"
+            >*Required Field
+          </span>
+          <span *ngIf="seat.errors?.['minlength']">*Valid Capacity </span>
+          <span *ngIf="seat.errors?.['pattern']">*Numerical Value </span>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <span *ngIf="park.touched && park.errors?.['required']"
+            >*Required Field
+          </span>
+          <span *ngIf="park.errors?.['minlength']">*Valid Capacity </span>
+          <span *ngIf="park.errors?.['pattern']">*Numerical Value </span>
+        </td>
+        <td>
+          <span *ngIf="room.touched && room.errors?.['required']"
+            >*Required Field
+          </span>
+          <span *ngIf="room.errors?.['minlength']">*Valid Count </span>
+          <span *ngIf="room.errors?.['pattern']">*Numerical Value </span>
+        </td>
+
+        <td>
+          <span *ngIf="des.touched && des.errors?.['required']"
+            >*Required Field
+          </span>
+          <span *ngIf="des.errors?.['minlength']"
+            >*Must contain 50 Characters
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+<div class="booking-list-container" *ngIf="showBookings">
+  <div class="table-scroll">
+    <select [(ngModel)]="selectedLocation" (change)="applyFilters()">
+      <option value="">All Locations</option>
+      <option value="sivakasi">Sivakasi</option>
+      <option value="aruppukottai">Aruppukottai</option>
+      <option value="virudhunagar">Virudhunagar</option>
+      <!-- Add more locations as needed -->
+    </select>
+    <table class="booking-list">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Hall Name</th>
+          <th>City</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="bookingList.length > 0; else noBookings">
+          <tr *ngFor="let booking of bookingList">
+            <td>{{ booking.username | upperpipe }}</td>
+            <td>{{ booking.hallname | upperpipe }}</td>
+            <td>{{ booking.city | upperpipe }}</td>
+            <td>{{ booking.date | upperpipe }}</td>
+            <td>
+              <button class="delete-btn" (click)="deleteBooking(booking)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-template #noBookings>
+          <tr>
+            <td colspan="4">No bookings</td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>

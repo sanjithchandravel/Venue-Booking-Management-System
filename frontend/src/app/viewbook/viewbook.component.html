@@ -1,0 +1,41 @@
+<div class="user-dashboard">
+  <h1>User Dashboard</h1>
+  <div>
+    <button (click)="viewBookings()">View My Bookings</button>
+  </div>
+</div>
+
+<div class="booking-list-container" *ngIf="showBookings">
+  <div class="table-scroll">
+    <table class="booking-list">
+      <thead>
+        <tr>
+          <th>Hall Name</th>
+          <th>City</th>
+          <th>Date</th>
+          <th>Action</th>
+          <!-- Added delete button column -->
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="bookingList.length > 0; else noBookings">
+          <tr *ngFor="let booking of bookingList">
+            <td>{{ booking.hallname }}</td>
+            <td>{{ booking.city }}</td>
+            <td>{{ booking.date }}</td>
+            <td>
+              <button class="delete-btn" (click)="deleteBooking(booking)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-template #noBookings>
+          <tr>
+            <td colspan="4">No bookings</td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>
+</div>
